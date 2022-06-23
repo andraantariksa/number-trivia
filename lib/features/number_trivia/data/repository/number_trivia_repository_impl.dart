@@ -3,7 +3,7 @@ import 'package:number_trivia/common/platform/network_info.dart';
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_local_data_source.dart';
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_remote_data_source.dart';
 import 'package:number_trivia/features/number_trivia/data/exception/cache_exception.dart';
-import 'package:number_trivia/features/number_trivia/data/exception/server_exception.dart';
+import 'package:number_trivia/features/number_trivia/data/exception/no_connection_exception.dart';
 import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia.dart';
 import 'package:number_trivia/features/number_trivia/domain/repository/number_trivia_repository.dart';
 
@@ -42,12 +42,12 @@ class NumberTriviaRepositoryImpl extends NumberTriviaRepository {
   @override
   Future<Either<Exception, NumberTrivia>> getRandomNumberTrivia() async {
     if (!(await networkInfo.isConnected)) {
-      return Left(RemoteDataException());
+      return Left(NoConnectionException());
     }
     try {
       final result = await remoteDataSource.getRandomNumberTrivia();
       return Right(result);
-    } on Exception catch(e) {
+    } on Exception catch (e) {
       return Left(e);
     }
   }

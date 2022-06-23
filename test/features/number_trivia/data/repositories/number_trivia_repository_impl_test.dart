@@ -5,10 +5,9 @@ import 'package:number_trivia/common/platform/network_info.dart';
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_local_data_source.dart';
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_remote_data_source.dart';
 import 'package:number_trivia/features/number_trivia/data/exception/cache_exception.dart';
-import 'package:number_trivia/features/number_trivia/data/exception/server_exception.dart';
+import 'package:number_trivia/features/number_trivia/data/exception/no_connection_exception.dart';
 import 'package:number_trivia/features/number_trivia/data/model/number_trivia.dart';
 import 'package:number_trivia/features/number_trivia/data/repository/number_trivia_repository_impl.dart';
-import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia.dart';
 import 'package:number_trivia/features/number_trivia/domain/repository/number_trivia_repository.dart';
 
 class MockRemoteDataSource extends Mock
@@ -23,7 +22,7 @@ void main() {
   const testNumberTriviaModel =
       NumberTriviaModel(number: testNumber, text: "Test trivia");
 
-  late NumberTriviaRepository repository;
+  late NumberTriviaRepositoryImpl repository;
   late MockRemoteDataSource mockRemoteDataSource;
   late MockLocalDataSource mockLocalDataSource;
   late MockNetworkInfo mockNetworkInfo;
@@ -120,7 +119,7 @@ void main() {
       final result = await repository.getRandomNumberTrivia();
 
       verifyNever(() => mockRemoteDataSource.getRandomNumberTrivia());
-      expect(result, equals(Left(RemoteDataException())));
+      expect(result, equals(Left(NoConnectionException())));
     });
 
     group('device is online', () {
