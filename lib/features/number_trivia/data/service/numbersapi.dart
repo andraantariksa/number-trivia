@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:number_trivia/features/number_trivia/data/exception/remote_data_exception.dart';
-import 'package:number_trivia/features/number_trivia/data/model/number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/data/model/number_trivia_model.dart';
 
 abstract class NumbersAPIService {
   Future<NumberTriviaModel> getConcreteNumberTrivia(int number);

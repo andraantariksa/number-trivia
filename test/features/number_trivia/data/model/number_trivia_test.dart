@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:number_trivia/features/number_trivia/data/model/number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/data/model/number_trivia_model.dart';
 import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia.dart';
 
 import '../../../../fixtures/fixtures.dart';

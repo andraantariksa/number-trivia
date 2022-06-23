@@ -6,7 +6,7 @@ import 'package:number_trivia/features/number_trivia/data/data_source/number_tri
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_remote_data_source.dart';
 import 'package:number_trivia/features/number_trivia/data/exception/cache_exception.dart';
 import 'package:number_trivia/features/number_trivia/data/exception/no_connection_exception.dart';
-import 'package:number_trivia/features/number_trivia/data/model/number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/data/model/number_trivia_model.dart';
 import 'package:number_trivia/features/number_trivia/data/repository/number_trivia_repository_impl.dart';
 import 'package:number_trivia/features/number_trivia/domain/repository/number_trivia_repository.dart';
 

@@ -1,4 +1,4 @@
-import 'package:number_trivia/features/number_trivia/data/model/number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/data/model/number_trivia_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:number_trivia/features/number_trivia/data/service/numbersapi.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_remote_data_source.dart';
-import 'package:number_trivia/features/number_trivia/data/model/number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/data/model/number_trivia_model.dart';
 import 'package:number_trivia/features/number_trivia/data/service/numbersapi.dart';
 
 class NumbersAPIServiceMock extends Mock implements NumbersAPIService {}

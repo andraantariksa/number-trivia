@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:number_trivia/features/number_trivia/data/exception/remote_data_exception.dart';
-import 'package:number_trivia/features/number_trivia/data/model/number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/data/model/number_trivia_model.dart';
 import 'package:number_trivia/features/number_trivia/data/service/numbersapi.dart';
 
 import '../../../../fixtures/fixtures.dart';
