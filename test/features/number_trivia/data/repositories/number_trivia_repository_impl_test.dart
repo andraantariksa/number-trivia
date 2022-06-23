@@ -98,7 +98,7 @@ void main() {
         verify(
             () => mockLocalDataSource.cacheNumberTrivia(testNumberTriviaModel));
         verify(() => mockRemoteDataSource.getConcreteNumberTrivia(testNumber));
-        expect(result, const Right(testNumberTriviaModel));
+        expect(result, equals(const Right(testNumberTriviaModel)));
       });
     });
   });
