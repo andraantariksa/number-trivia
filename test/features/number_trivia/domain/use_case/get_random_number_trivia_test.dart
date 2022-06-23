@@ -27,7 +27,7 @@ void main() {
 
     final result = await useCase();
 
-    expect(result, const Right(testNumberTrivia));
+    expect(result, equals(const Right(testNumberTrivia)));
 
     verify(() => numberTriviaRepository.getRandomNumberTrivia());
   });

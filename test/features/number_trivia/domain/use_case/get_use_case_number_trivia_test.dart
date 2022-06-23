@@ -20,7 +20,7 @@ void main() {
   });
 
   const testNumber = 1;
-  const testNumberTrivia = NumberTrivia(text: "Test", number: 1);
+  const testNumberTrivia = NumberTrivia(text: "Test", number: testNumber);
 
   test("should get trivia of a number from the repository", () async {
     when(() => numberTriviaRepository.getConcreteNumberTrivia(any()))
@@ -28,7 +28,7 @@ void main() {
 
     final result = await useCase(testNumber);
 
-    expect(result, const Right(testNumberTrivia));
+    expect(result, equals(const Right(testNumberTrivia)));
 
     verify(() => numberTriviaRepository.getConcreteNumberTrivia(testNumber));
   });
