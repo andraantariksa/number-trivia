@@ -3,6 +3,7 @@ import 'package:number_trivia/common/platform/network_info.dart';
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_local_data_source.dart';
 import 'package:number_trivia/features/number_trivia/data/data_source/number_trivia_remote_data_source.dart';
 import 'package:number_trivia/features/number_trivia/data/exception/cache_exception.dart';
+import 'package:number_trivia/features/number_trivia/data/exception/server_exception.dart';
 import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia.dart';
 import 'package:number_trivia/features/number_trivia/domain/repository/number_trivia_repository.dart';
 
@@ -21,11 +22,13 @@ class NumberTriviaRepositoryImpl extends NumberTriviaRepository {
       int number) async {
     try {
       if (await networkInfo.isConnected) {
-        final remoteResult = await remoteDataSource.getConcreteNumberTrivia(number);
+        final remoteResult =
+            await remoteDataSource.getConcreteNumberTrivia(number);
         await localDataSource.cacheNumberTrivia(remoteResult);
         return Right(remoteResult);
       } else {
-        final localResult = await localDataSource.getConcreteNumberTrivia(number);
+        final localResult =
+            await localDataSource.getConcreteNumberTrivia(number);
         if (localResult == null) {
           throw NoCachedDataException();
         }
@@ -38,7 +41,14 @@ class NumberTriviaRepositoryImpl extends NumberTriviaRepository {
 
   @override
   Future<Either<Exception, NumberTrivia>> getRandomNumberTrivia() async {
-    // TODO: implement getRandomNumberTrivia
-    throw UnimplementedError();
+    if (!(await networkInfo.isConnected)) {
+      return Left(RemoteDataException());
+    }
+    try {
+      final result = await remoteDataSource.getRandomNumberTrivia();
+      return Right(result);
+    } on Exception catch(e) {
+      return Left(e);
+    }
   }
 }
