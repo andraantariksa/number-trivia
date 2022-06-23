@@ -5,25 +5,23 @@ import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia
 import '../../../../fixtures/fixtures.dart';
 
 void main() {
-  const numberTrivia = NumberTriviaModel(number: 1, text: 'Test Text');
-
-  test(
-    'should be a subclass of NumberTrivia (an entity)',
-    () async {
-      // assert
-      expect(numberTrivia, isA<NumberTrivia>());
-    },
-  );
-
   const numberTriviaModel = NumberTriviaModel(
       number: 418,
       text:
           "418 is the error code for \"I'm a teapot\" in the Hyper Text Coffee Pot Control Protocol.");
 
+  test(
+    'should be a subclass of NumberTrivia (an entity)',
+    () async {
+      // assert
+      expect(numberTriviaModel, isA<NumberTrivia>());
+    },
+  );
+
   group('fromJson', () {
     test('should return a NumberTrivia by decoding a string', () async {
-      final result = NumberTriviaModel.fromJson(fixture("trivia.json"));
-      expect(result, numberTriviaModel);
+      final result = NumberTriviaModel.fromJson(fixtureString("trivia.json"));
+      expect(result, equals(numberTriviaModel));
     });
   });
 }
