@@ -5,10 +5,8 @@ import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia
 import '../../../../fixtures/fixtures.dart';
 
 void main() {
-  const numberTriviaModel = NumberTriviaModel(
-      number: 418,
-      text:
-          "418 is the error code for \"I'm a teapot\" in the Hyper Text Coffee Pot Control Protocol.");
+  const numberTriviaModel = NumberTriviaModel(418,
+      "418 is the error code for \"I'm a teapot\" in the Hyper Text Coffee Pot Control Protocol.");
 
   test(
     'should be a subclass of NumberTrivia (an entity)',

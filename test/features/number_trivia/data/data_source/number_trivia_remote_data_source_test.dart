@@ -9,7 +9,7 @@ class NumbersAPIServiceMock extends Mock implements NumbersAPIService {}
 void main() {
   const testNumber = 420;
   const testNumberTriviaModel =
-      NumberTriviaModel(number: testNumber, text: "Test trivia");
+      NumberTriviaModel(testNumber, "Test trivia");
 
   late NumbersAPIService apiService;
   late NumberTriviaRemoteDataSourceImpl dataSource;

@@ -1,12 +1,22 @@
 import 'dart:convert';
+
+import 'package:number_trivia/features/number_trivia/data/database/database.dart';
 import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia.dart';
 
 class NumberTriviaModel extends NumberTrivia {
-  const NumberTriviaModel({required int number, required String text})
-      : super(number: number, text: text);
+  const NumberTriviaModel(int number, String description)
+      : super(number, description);
 
   factory NumberTriviaModel.fromJson(String input) {
     Map<String, dynamic> data = jsonDecode(input);
-    return NumberTriviaModel(number: data['number'], text: data['text']);
+    return NumberTriviaModel(data['number'], data['text']);
+  }
+
+  factory NumberTriviaModel.fromNumberTriviaData(NumberTriviaData data) {
+    return NumberTriviaModel(data.number, data.description);
+  }
+
+  NumberTriviaData toNumberTriviaData() {
+    return NumberTriviaData(number: number, description: description);
   }
 }

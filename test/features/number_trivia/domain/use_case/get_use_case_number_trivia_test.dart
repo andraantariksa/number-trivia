@@ -20,7 +20,7 @@ void main() {
   });
 
   const testNumber = 1;
-  const testNumberTrivia = NumberTrivia(text: "Test", number: testNumber);
+  const testNumberTrivia = NumberTrivia(testNumber, "Test");
 
   test("should get trivia of a number from the repository", () async {
     when(() => numberTriviaRepository.getConcreteNumberTrivia(any()))

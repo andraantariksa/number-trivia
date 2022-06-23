@@ -19,7 +19,7 @@ void main() {
     useCase = GetRandomNumberTrivia(numberTriviaRepository);
   });
 
-  const testNumberTrivia = NumberTrivia(text: "Test", number: 1);
+  const testNumberTrivia = NumberTrivia(1, "Test");
 
   test("should get trivia of a random number from the repository", () async {
     when(() => numberTriviaRepository.getRandomNumberTrivia())

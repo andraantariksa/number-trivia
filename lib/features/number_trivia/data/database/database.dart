@@ -18,8 +18,8 @@ class NumberTriviaDatabase extends _$NumberTriviaDatabase {
   Future<void> insertNumberTrivia(NumberTriviaData numberTrivia) =>
       into(this.numberTrivia).insert(numberTrivia);
 
-  Future<NumberTriviaData> getNumberTrivia(int id) =>
-      (select(numberTrivia)..where((tbl) => tbl.id.equals(id))).getSingle();
+  Future<NumberTriviaData?> getNumberTrivia(int id) =>
+      (select(numberTrivia)..where((tbl) => tbl.number.equals(id))).getSingleOrNull();
 }
 
 LazyDatabase openConnection() {

@@ -20,7 +20,7 @@ class MockNetworkInfo extends Mock implements NetworkInfo {}
 void main() {
   const testNumber = 420;
   const testNumberTriviaModel =
-      NumberTriviaModel(number: testNumber, text: "Test trivia");
+      NumberTriviaModel(testNumber, "Test trivia");
 
   late NumberTriviaRepositoryImpl repository;
   late MockRemoteDataSource mockRemoteDataSource;
