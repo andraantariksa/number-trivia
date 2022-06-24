@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia.dart';
 import 'package:number_trivia/features/number_trivia/domain/repository/number_trivia_repository.dart';
-import 'package:number_trivia/features/number_trivia/domain/use_case/get_concrete_number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/domain/use_case/number_trivia/get_concrete_number_trivia_use_case.dart';
 
 class ConcreteNumberTriviaRepositoryMock extends Mock
     implements NumberTriviaRepository {
@@ -12,11 +12,11 @@ class ConcreteNumberTriviaRepositoryMock extends Mock
 
 void main() {
   late NumberTriviaRepository numberTriviaRepository;
-  late GetConcreteNumberTrivia useCase;
+  late GetConcreteNumberTriviaUseCase useCase;
 
   setUp(() {
     numberTriviaRepository = ConcreteNumberTriviaRepositoryMock();
-    useCase = GetConcreteNumberTrivia(numberTriviaRepository);
+    useCase = GetConcreteNumberTriviaUseCase(numberTriviaRepository);
   });
 
   const testNumber = 1;

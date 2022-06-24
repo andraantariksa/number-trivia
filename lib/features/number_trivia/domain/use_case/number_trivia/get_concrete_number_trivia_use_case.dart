@@ -2,12 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:number_trivia/features/number_trivia/domain/entity/number_trivia.dart';
 import 'package:number_trivia/features/number_trivia/domain/repository/number_trivia_repository.dart';
 
-class GetConcreteNumberTrivia {
-  final NumberTriviaRepository repository;
+class GetConcreteNumberTriviaUseCase {
+  final NumberTriviaRepository numberTriviaRepository;
 
-  GetConcreteNumberTrivia(this.repository);
+  GetConcreteNumberTriviaUseCase(this.numberTriviaRepository);
 
   Future<Either<Exception, NumberTrivia>> call(int number) async {
-    return await repository.getConcreteNumberTrivia(number);
+    return await numberTriviaRepository.getConcreteNumberTrivia(number);
   }
 }
