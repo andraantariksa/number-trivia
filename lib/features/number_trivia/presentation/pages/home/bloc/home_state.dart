@@ -9,5 +9,5 @@ class HomeState extends Equatable {
   const HomeState({this.numberText = "", this.result});
 
   @override
-  List<Object?> get props => [numberText];
+  List<Object?> get props => [numberText, result];
 }

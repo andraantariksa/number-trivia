@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:get/get.dart';
 import 'package:number_trivia/common/util/resource.dart';
 import 'package:number_trivia/features/number_trivia/domain/use_case/number_trivia/number_trivia_use_cases.dart';
-import 'package:number_trivia/features/number_trivia/presentation/pages/home/home_event.dart';
-import 'package:number_trivia/features/number_trivia/presentation/pages/home/home_state.dart';
+import 'package:number_trivia/features/number_trivia/presentation/pages/home/bloc/home_event.dart';
+import 'package:number_trivia/features/number_trivia/presentation/pages/home/bloc/home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final NumberTriviaUseCases numberTriviaUseCases = Get.find();

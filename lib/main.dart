@@ -16,11 +16,13 @@ import 'package:number_trivia/features/number_trivia/presentation/pages/home/hom
 import 'features/number_trivia/domain/repository/number_trivia_repository.dart';
 
 void main() {
-  runApp(const NumberTriviaApp());
+  runApp(NumberTriviaApp());
 }
 
 class NumberTriviaApp extends StatelessWidget {
-  const NumberTriviaApp({Key? key}) : super(key: key);
+  NumberTriviaApp({Key? key}) : super(key: key) {
+    setupSingletons();
+  }
 
   void setupSingletons() {
     final client = http.Client();
@@ -36,8 +38,6 @@ class NumberTriviaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    setupSingletons();
-
     return GetMaterialApp(
       title: "Test",
       theme: ThemeData(

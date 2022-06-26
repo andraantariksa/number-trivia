@@ -9,7 +9,7 @@ abstract class NumbersAPIService {
 }
 
 class NumbersAPIServiceImpl extends NumbersAPIService {
-  static const baseAPI = "http://numbersapi.com/";
+  static const baseAPI = "http://numbersapi.com";
 
   final http.Client client;
 
@@ -17,7 +17,7 @@ class NumbersAPIServiceImpl extends NumbersAPIService {
 
   @override
   Future<NumberTriviaModel> getConcreteNumberTrivia(int number) async {
-    final resp = await client.get(Uri.parse("$baseAPI/$number/trivia"));
+    final resp = await client.get(Uri.parse("$baseAPI/$number/trivia?json"));
     if (resp.statusCode == 200) {
       return NumberTriviaModel.fromJson(resp.body);
     } else {
@@ -27,7 +27,7 @@ class NumbersAPIServiceImpl extends NumbersAPIService {
 
   @override
   Future<NumberTriviaModel> getRandomNumberTrivia() async {
-    final resp = await client.get(Uri.parse("$baseAPI/random/trivia"));
+    final resp = await client.get(Uri.parse("$baseAPI/random/trivia?json"));
     if (resp.statusCode == 200) {
       return NumberTriviaModel.fromJson(resp.body);
     } else {
