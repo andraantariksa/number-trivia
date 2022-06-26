@@ -13,7 +13,7 @@ class NumberTriviaInput extends StatelessWidget {
 
     return Column(
       children: [
-        const Text("Enter some number"),
+        const Text("Enter some number", style: TextStyle(fontWeight: FontWeight.w600)),
         TextField(
           onChanged: (text) {
             BlocProvider.of<HomeBloc>(context).add(NumberTextChanged(text));
