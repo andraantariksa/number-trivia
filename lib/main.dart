@@ -15,26 +15,25 @@ import 'package:number_trivia/features/number_trivia/presentation/pages/home/hom
 
 import 'features/number_trivia/domain/repository/number_trivia_repository.dart';
 
+void setupSingletons() {
+  final client = http.Client();
+  final numbersAPIService = NumbersAPIServiceImpl(client);
+  Get.put<NumbersAPIService>(numbersAPIService);
+
+  final networkInfo = NetworkInfoImpl(InternetConnectionChecker());
+  Get.put<NetworkInfo>(networkInfo);
+
+  final database = NumberTriviaDatabase();
+  Get.put<NumberTriviaDatabase>(database);
+}
+
 void main() {
-  runApp(NumberTriviaApp());
+  setupSingletons();
+  runApp(const NumberTriviaApp());
 }
 
 class NumberTriviaApp extends StatelessWidget {
-  NumberTriviaApp({Key? key}) : super(key: key) {
-    setupSingletons();
-  }
-
-  void setupSingletons() {
-    final client = http.Client();
-    final numbersAPIService = NumbersAPIServiceImpl(client);
-    Get.put<NumbersAPIService>(numbersAPIService);
-
-    final networkInfo = NetworkInfoImpl(InternetConnectionChecker());
-    Get.put<NetworkInfo>(networkInfo);
-
-    final database = NumberTriviaDatabase();
-    Get.put<NumberTriviaDatabase>(database);
-  }
+  const NumberTriviaApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

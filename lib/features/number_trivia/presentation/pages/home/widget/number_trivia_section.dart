@@ -14,8 +14,7 @@ class NumberTrivia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
@@ -28,7 +27,7 @@ class NumberTrivia extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ],
-    ));
+    );
   }
 }
 
