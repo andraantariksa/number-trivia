@@ -9,7 +9,7 @@ class NumberTriviaModel extends NumberTrivia {
 
   factory NumberTriviaModel.fromJson(String input) {
     Map<String, dynamic> data = jsonDecode(input);
-    return NumberTriviaModel(data['number'], data['text']);
+    return NumberTriviaModel((data['number'] as num).toInt(), data['text']);
   }
 
   factory NumberTriviaModel.fromNumberTriviaData(NumberTriviaData data) {

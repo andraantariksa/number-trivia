@@ -14,7 +14,7 @@ class UriMock extends Mock implements Uri {}
 void main() {
   const testNumber = 418;
   const testNumberTriviaModel = NumberTriviaModel(testNumber,
-      "418 is the error code for \"I\'m a teapot\" in the Hyper Text Coffee Pot Control Protocol.");
+      "418 is the error code for \"I'm a teapot\" in the Hyper Text Coffee Pot Control Protocol.");
 
   const errorCode = 404;
   const errorMessage = "Something went wrong";

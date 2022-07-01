@@ -14,20 +14,24 @@ class NumberTrivia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          numberTrivia.number.toString(),
-          style: const TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          numberTrivia.description,
-          style: const TextStyle(fontSize: 22.0),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              numberTrivia.number.toString(),
+              style:
+                  const TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              numberTrivia.description,
+              style: const TextStyle(fontSize: 22.0),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ));
   }
 }
 
@@ -48,10 +52,14 @@ class NumberTriviaSection extends StatelessWidget {
           } else if (state.result is Error<entity.NumberTrivia>) {
             final Error<entity.NumberTrivia> result =
                 state.result as Error<entity.NumberTrivia>;
+            var message = result.exception.toString();
+            if (result.exception is FormatException) {
+              message = "Input is invalid";
+            }
             return Column(children: [
               Lottie.asset("assets/error.json"),
               Text(
-                result.exception.toString(),
+                message,
                 textAlign: TextAlign.center,
               )
             ]);

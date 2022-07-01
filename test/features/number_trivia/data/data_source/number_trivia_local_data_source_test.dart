@@ -16,6 +16,7 @@ void main() {
   const testNumber2 = 480;
   const testNumberTriviaModel2 =
       NumberTriviaModel(testNumber2, "Test trivia 2");
+  // ignore: unused_local_variable
   NumberTriviaData testNumberTriviaData2 =
       testNumberTriviaModel2.toNumberTriviaData();
 
@@ -53,7 +54,8 @@ void main() {
 
   group("cacheNumberTrivia", () {
     test("data should be retrieved from database", () async {
-      when(() => database.getNumberTrivia(testNumber1)).thenAnswer((_) async => testNumberTriviaData1);
+      when(() => database.getNumberTrivia(testNumber1))
+          .thenAnswer((_) async => testNumberTriviaData1);
 
       final result = await dataSource.getConcreteNumberTrivia(testNumber1);
 

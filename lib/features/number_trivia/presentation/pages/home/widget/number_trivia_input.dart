@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:number_trivia/features/number_trivia/presentation/pages/home/bloc/home_bloc.dart';
 import 'package:number_trivia/features/number_trivia/presentation/pages/home/bloc/home_event.dart';
@@ -13,7 +12,8 @@ class NumberTriviaInput extends StatelessWidget {
 
     return Column(
       children: [
-        const Text("Enter some number", style: TextStyle(fontWeight: FontWeight.w600)),
+        const Text("Enter some number",
+            style: TextStyle(fontWeight: FontWeight.w600)),
         TextField(
           onChanged: (text) {
             BlocProvider.of<HomeBloc>(context).add(NumberTextChanged(text));

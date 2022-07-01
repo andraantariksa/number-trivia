@@ -8,7 +8,6 @@ import 'package:number_trivia/features/number_trivia/data/exception/cache_except
 import 'package:number_trivia/features/number_trivia/data/exception/no_connection_exception.dart';
 import 'package:number_trivia/features/number_trivia/data/model/number_trivia_model.dart';
 import 'package:number_trivia/features/number_trivia/data/repository/number_trivia_repository_impl.dart';
-import 'package:number_trivia/features/number_trivia/domain/repository/number_trivia_repository.dart';
 
 class MockRemoteDataSource extends Mock
     implements NumberTriviaRemoteDataSource {}
@@ -19,8 +18,7 @@ class MockNetworkInfo extends Mock implements NetworkInfo {}
 
 void main() {
   const testNumber = 420;
-  const testNumberTriviaModel =
-      NumberTriviaModel(testNumber, "Test trivia");
+  const testNumberTriviaModel = NumberTriviaModel(testNumber, "Test trivia");
 
   late NumberTriviaRepositoryImpl repository;
   late MockRemoteDataSource mockRemoteDataSource;
